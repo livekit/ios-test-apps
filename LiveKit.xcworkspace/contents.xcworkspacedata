@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:LKUIKitTest/LKUIKitTest.xcodeproj">
+      location = "group:livekit-ios">
    </FileRef>
    <FileRef
-      location = "group:LiveKit">
+      location = "group:LKUIKitTest/LKUIKitTest.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:iOSLiveKitTest/iOSLiveKitTest.xcodeproj">
