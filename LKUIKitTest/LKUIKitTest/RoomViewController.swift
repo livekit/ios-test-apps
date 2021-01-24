@@ -14,12 +14,12 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let host: String = "bd94ac45495a.ngrok.io"
+        let host: String = "localhost:7880"
         let httpPort: String = "7880"
-        let rtcPort: String = "7881"
-        let roomId: String = "RM_qpK6GD7Vxp7w4XVw5oAaRM"
-        let roomName: String = "i"
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTEwMDU2MTAsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJpb3MiLCJuYmYiOjE2MTA5MTkyMTAsInZpZGVvIjp7InJvb20iOiJpIiwicm9vbV9qb2luIjp0cnVlfX0.XK-eIShKbYUhXA8o6esFpRaaHC3xuBfvZHPLKMtxPn4"
+        let rtcPort: String = "7880"
+        let roomId: String = "RM_6QRUAE7FpLqzSwhMWv352Z"
+        let roomName: String = "g"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE0NzQzNzAsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJpb3MiLCJuYmYiOjE2MTE0NzM3NzAsInZpZGVvIjp7InJvb20iOiJnIiwicm9vbV9qb2luIjp0cnVlfX0.SOkHovcu4p8I9hJNu04sXqcRzU5hPAw73Zue62XpEW8"
         
         LiveKit.connect(options: ConnectOptions(token: token, block: { builder in
             builder.roomId = roomId
