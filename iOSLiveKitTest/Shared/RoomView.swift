@@ -10,21 +10,13 @@ import LiveKit
 
 struct RoomView: View {
     private var host: String
-    private var httpPort: String
-    private var rtcPort: String
-    private var roomId: String
-    private var roomName: String
     private var token: String
     
     @State private var room: Room?
     @State private var videoViews: [VideoViewComponent] = []
     
-    init(host: String, httpPort: String, rtcPort: String, roomId: String, roomName: String, token: String) {
+    init(host: String, token: String) {
         self.host = host
-        self.httpPort = httpPort
-        self.rtcPort = rtcPort
-        self.roomId = roomId
-        self.roomName = roomName
         self.token = token
     }
     
@@ -39,24 +31,17 @@ struct RoomView: View {
             }
         } else {
             VStack {
-                Text("Connected")
-//                ForEach(videoViews) { videoView in
-//                    videoView
-//                }
+                ForEach(videoViews) { videoView in
+                    videoView
+                }
             }
         }
     }
     
     func connectToRoom() {
-        LiveKit.connect(options: ConnectOptions(token: token, block: { builder in
-            builder.roomId = roomId
-            builder.roomName = roomName
+        room = LiveKit.connect(options: ConnectOptions.options(token: token, block: { builder in
             builder.host = host
-            builder.rtcPort = UInt32(rtcPort)!
-            builder.httpPort = UInt32(httpPort)!
-        }), delegate: self).then { room in
-            self.room = room
-        }
+        }), delegate: self)
     }
 }
 
@@ -161,10 +146,10 @@ extension RoomView: RemoteParticipantDelegate {
     func didSubscribe(videoTrack: RemoteVideoTrackPublication, participant: RemoteParticipant) {
         print("remote participant delegate --- did subscribe video")
         
-//        if let track = videoTrack.videoTrack {
-//            let videoView = VideoViewComponent(id: videoTrack.trackSid, track: track)
-//            videoViews.append(videoView)
-//        }
+        if let track = videoTrack.videoTrack {
+            let videoView = VideoViewComponent(id: videoTrack.trackSid, track: track)
+            videoViews.append(videoView)
+        }
     }
     
     func didFailToSubscribe(videoTrack: RemoteVideoTrackPublication, error: Error, participant: RemoteParticipant) {

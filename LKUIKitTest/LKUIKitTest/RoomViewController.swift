@@ -6,27 +6,22 @@
 //
 
 import UIKit
+import AVFoundation
 import LiveKit
 
 class RoomViewController: UIViewController {
+    
+    var room: Room?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let host: String = "localhost:7880"
-        let httpPort: String = "7880"
-        let rtcPort: String = "7880"
-        let roomId: String = "RM_6QRUAE7FpLqzSwhMWv352Z"
-        let roomName: String = "g"
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE0NzQzNzAsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJpb3MiLCJuYmYiOjE2MTE0NzM3NzAsInZpZGVvIjp7InJvb20iOiJnIiwicm9vbV9qb2luIjp0cnVlfX0.SOkHovcu4p8I9hJNu04sXqcRzU5hPAw73Zue62XpEW8"
+        let host: String = "d7dbc8e3e2b7.ngrok.io"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTU5NjY0MDUsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJtb2JpbGUiLCJuYmYiOjE2MTMzNzQ0MDUsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlfX0.3zMSgU5Xc69LyN4YfRgRFeVszyuDbftVAUkr_nOnJE8"
         
-        LiveKit.connect(options: ConnectOptions(token: token, block: { builder in
-            builder.roomId = roomId
-            builder.roomName = roomName
+        room = LiveKit.connect(options: ConnectOptions.options(token: token, block: { builder in
             builder.host = host
-            builder.rtcPort = UInt32(rtcPort)!
-            builder.httpPort = UInt32(httpPort)!
         }), delegate: self)
     }
 }
@@ -37,6 +32,18 @@ extension RoomViewController: RoomDelegate {
         print("room delegate --- did connect")
         print("room view --- remote participants length: \(room.remoteParticipants.count)")
         room.remoteParticipants.forEach { $0.delegate = self }
+        
+//        if let localParticipant = room.localParticipant {
+//            localParticipant.delegate = self
+            
+//            if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
+//                let videoTrack = LocalVideoTrack.track(source: device, enabled: true, name: "localVideo")
+//                localParticipant.publishVideoTrack(track: videoTrack)
+//            }
+            
+//            let audioTrack = LocalAudioTrack.track(name: "localAudio")
+//            localParticipant.publishAudioTrack(track: audioTrack)
+//        }
     }
     
     func didDisconnect(room: Room, error: Error?) {
@@ -73,6 +80,28 @@ extension RoomViewController: RoomDelegate {
     
     func dominantSpeakerDidChange(room: Room, participant: Participant) {
         print("room delegate --- dominant speaker change")
+    }
+}
+
+extension RoomViewController: LocalParticipantDelegate {
+    func didPublishAudioTrack(track: LocalAudioTrack) {
+        print("local participant delegate --- published local audio track")
+    }
+    
+    func didFailToPublishAudioTrack(error: Error) {
+        print("local participant delegate --- error publishing audio track: \(error)")
+    }
+    
+    func didPublishVideoTrack(track: LocalVideoTrack) {
+        print("local participant delegate --- published local video track")
+    }
+    
+    func didFailToPublishVideoTrack(error: Error) {
+        print("local participant delegate --- error publishing video track: \(error)")
+    }
+    
+    func didPublishDataTrack(track: LocalDataTrack) {
+        print("local participant delegate --- published local data track")
     }
 }
 
@@ -134,9 +163,18 @@ extension RoomViewController: RemoteParticipantDelegate {
         
         if let track = videoTrack.videoTrack {
             DispatchQueue.main.async {
-                let videoView = VideoView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-                track.addRenderer(videoView)
+                let videoView = VideoView(frame: .zero)
+                videoView.translatesAutoresizingMaskIntoConstraints = false
                 self.view.addSubview(videoView)
+                
+                NSLayoutConstraint.activate([
+                    videoView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                    videoView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                    videoView.topAnchor.constraint(equalTo: self.view.topAnchor),
+                    videoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                ])
+                
+                track.addRenderer(videoView.renderer!)
             }
         }
     }
