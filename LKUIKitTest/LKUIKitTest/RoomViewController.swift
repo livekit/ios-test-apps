@@ -17,8 +17,8 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let host: String = "d7dbc8e3e2b7.ngrok.io"
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTU5NjY0MDUsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJtb2JpbGUiLCJuYmYiOjE2MTMzNzQ0MDUsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlfX0.3zMSgU5Xc69LyN4YfRgRFeVszyuDbftVAUkr_nOnJE8"
+        let host: String = "a3410fb79ad6.ngrok.io"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTYyNzAxMDMsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJtb2JpbGUiLCJuYmYiOjE2MTM2NzgxMDMsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlfX0.vHXFI4moxWCBqYfGq0EClHfTkYukB-nSyKWuMLPXdtA"
         
         room = LiveKit.connect(options: ConnectOptions.options(token: token, block: { builder in
             builder.host = host
@@ -31,8 +31,8 @@ extension RoomViewController: RoomDelegate {
     func didConnect(room: Room) {
         print("room delegate --- did connect")
         print("room view --- remote participants length: \(room.remoteParticipants.count)")
-        room.remoteParticipants.forEach { $0.delegate = self }
-        
+
+        room.remoteParticipants.values.forEach { $0.delegate = self }
 //        if let localParticipant = room.localParticipant {
 //            localParticipant.delegate = self
             
@@ -44,6 +44,10 @@ extension RoomViewController: RoomDelegate {
 //            let audioTrack = LocalAudioTrack.track(name: "localAudio")
 //            localParticipant.publishAudioTrack(track: audioTrack)
 //        }
+    }
+    
+    func activeSpeakersDidChange(speakers: [Participant], room: Room) {
+        print("room delegate --- active speakers did change")
     }
     
     func didDisconnect(room: Room, error: Error?) {
@@ -106,6 +110,26 @@ extension RoomViewController: LocalParticipantDelegate {
 }
 
 extension RoomViewController: RemoteParticipantDelegate {
+    func didFailToSubscribe(audioTrack: RemoteAudioTrack, error: Error, participant: RemoteParticipant) {
+        print("remote participant delegate --- did fail to subscribe to audio")
+    }
+    
+    func didFailToSubscribe(videoTrack: RemoteVideoTrack, error: Error, participant: RemoteParticipant) {
+        print("remote participant delegate --- did fail to subscribe to video")
+    }
+    
+    func didSubscribe(dataTrack: RemoteDataTrackPublication, participant: RemoteParticipant) {
+        print("remote participant delegate --- did subscribe to data track")
+    }
+    
+    func didUnsubscribe(dataTrack: RemoteDataTrackPublication, participant: RemoteParticipant) {
+        print("remote participant delegate --- did unsubscribe from data track")
+    }
+    
+    func didReceive(data: Data, dataTrack: RemoteDataTrackPublication, participant: RemoteParticipant) {
+        print("remote participant delegate --- did receive data from data track")
+    }
+    
     func didPublish(audioTrack: RemoteAudioTrackPublication, participant: RemoteParticipant) {
         print("remote participant delegate --- did publish audio")
     }
