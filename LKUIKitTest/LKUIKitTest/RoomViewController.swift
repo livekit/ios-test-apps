@@ -12,13 +12,15 @@ import LiveKit
 class RoomViewController: UIViewController {
     
     var room: Room?
+    var remoteVideo: VideoView?
+    var localVideo: VideoView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let host: String = "a3410fb79ad6.ngrok.io"
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTYyNzAxMDMsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJtb2JpbGUiLCJuYmYiOjE2MTM2NzgxMDMsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlfX0.vHXFI4moxWCBqYfGq0EClHfTkYukB-nSyKWuMLPXdtA"
+        let host: String = "35960668c154.ngrok.io"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTcxNDkxNTgsImlzcyI6IkFQSUFnRnlYREpaSkxlODdyNG5kNUVqU1AiLCJqdGkiOiJtb2JpbGUiLCJuYmYiOjE2MTQ1NTcxNTgsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlfX0.tmaDiyg9NCQ7NOkdEyKKv0Em-BegpG9md_dBZmomiNc"
         
         room = LiveKit.connect(options: ConnectOptions.options(token: token, block: { builder in
             builder.host = host
@@ -29,21 +31,21 @@ class RoomViewController: UIViewController {
 extension RoomViewController: RoomDelegate {
     /* Room Delegate Methods */
     func didConnect(room: Room) {
-        print("room delegate --- did connect")
-        print("room view --- remote participants length: \(room.remoteParticipants.count)")
-
         room.remoteParticipants.values.forEach { $0.delegate = self }
-//        if let localParticipant = room.localParticipant {
-//            localParticipant.delegate = self
+        
+        if let localParticipant = room.localParticipant {
+            localParticipant.delegate = self
             
-//            if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
-//                let videoTrack = LocalVideoTrack.track(source: device, enabled: true, name: "localVideo")
-//                localParticipant.publishVideoTrack(track: videoTrack)
-//            }
-            
+            do {
+                let videoTrack = try LocalVideoTrack.track(enabled: true, name: "localVideo")
+                localParticipant.publishVideoTrack(track: videoTrack)
+            } catch {
+                print("\(error)")
+            }
+
 //            let audioTrack = LocalAudioTrack.track(name: "localAudio")
 //            localParticipant.publishAudioTrack(track: audioTrack)
-//        }
+        }
     }
     
     func activeSpeakersDidChange(speakers: [Participant], room: Room) {
@@ -66,11 +68,11 @@ extension RoomViewController: RoomDelegate {
         print("room delegate --- did reconnect")
     }
     
-    func participantDidConnect(room: Room, participant: Participant) {
-        print("room delegate --- participant did connect")
+    func participantDidConnect(room: Room, participant: RemoteParticipant) {
+        participant.delegate = self
     }
     
-    func participantDidDisconnect(room: Room, participant: Participant) {
+    func participantDidDisconnect(room: Room, participant: RemoteParticipant) {
         print("room delegate --- participant did disconnect")
     }
     
@@ -89,7 +91,7 @@ extension RoomViewController: RoomDelegate {
 
 extension RoomViewController: LocalParticipantDelegate {
     func didPublishAudioTrack(track: LocalAudioTrack) {
-        print("local participant delegate --- published local audio track")
+        print("local participant delegate --- published local audio track with sid: \(track.sid!)")
     }
     
     func didFailToPublishAudioTrack(error: Error) {
@@ -97,7 +99,35 @@ extension RoomViewController: LocalParticipantDelegate {
     }
     
     func didPublishVideoTrack(track: LocalVideoTrack) {
-        print("local participant delegate --- published local video track")
+        print("local participant delegate --- published local video track with sid: \(track.sid!)")
+        
+        DispatchQueue.main.async {
+            let videoView = VideoView(frame: .zero)
+            self.localVideo = videoView
+            
+            videoView.translatesAutoresizingMaskIntoConstraints = false
+            videoView.layer.cornerRadius = 5.0
+            videoView.layer.borderWidth = 3
+            videoView.layer.borderColor = UIColor.white.cgColor
+            
+            if let remoteVideo = self.remoteVideo {
+                self.view.insertSubview(videoView, aboveSubview: remoteVideo)
+            } else {
+                self.view.addSubview(videoView)
+            }
+            
+            let screenSize = UIScreen.main.bounds
+            let width = screenSize.width * 0.2
+            let height = screenSize.height * 0.2
+            NSLayoutConstraint.activate([
+                videoView.widthAnchor.constraint(equalToConstant: width),
+                videoView.heightAnchor.constraint(equalToConstant: height),
+                videoView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+                videoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -16)
+            ])
+        
+            track.addRenderer(videoView.renderer!)
+        }
     }
     
     func didFailToPublishVideoTrack(error: Error) {
@@ -188,8 +218,14 @@ extension RoomViewController: RemoteParticipantDelegate {
         if let track = videoTrack.videoTrack {
             DispatchQueue.main.async {
                 let videoView = VideoView(frame: .zero)
+                self.remoteVideo = videoView
                 videoView.translatesAutoresizingMaskIntoConstraints = false
-                self.view.addSubview(videoView)
+                
+                if let localVideo = self.localVideo {
+                    self.view.insertSubview(videoView, belowSubview: localVideo)
+                } else {
+                    self.view.addSubview(videoView)
+                }
                 
                 NSLayoutConstraint.activate([
                     videoView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
