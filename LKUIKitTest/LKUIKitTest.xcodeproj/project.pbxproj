@@ -14,7 +14,7 @@
 		4167911525B3636600F46F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4167911425B3636600F46F9E /* Assets.xcassets */; };
 		4167911825B3636600F46F9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4167911625B3636600F46F9E /* LaunchScreen.storyboard */; };
 		4167912225B368B400F46F9E /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4167912125B368B400F46F9E /* RoomViewController.swift */; };
-		41A6A99225B4F74E00C5748A /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 41A6A99125B4F74E00C5748A /* LiveKit */; };
+		41EB17FD25EDBA7F00969861 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 41EB17FC25EDBA7F00969861 /* LiveKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41A6A99225B4F74E00C5748A /* LiveKit in Frameworks */,
+				41EB17FD25EDBA7F00969861 /* LiveKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +46,7 @@
 			children = (
 				4167910A25B3636500F46F9E /* LKUIKitTest */,
 				4167910925B3636500F46F9E /* Products */,
+				41EB17FB25EDBA7F00969861 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +73,13 @@
 			path = LKUIKitTest;
 			sourceTree = "<group>";
 		};
+		41EB17FB25EDBA7F00969861 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -89,7 +97,7 @@
 			);
 			name = LKUIKitTest;
 			packageProductDependencies = (
-				41A6A99125B4F74E00C5748A /* LiveKit */,
+				41EB17FC25EDBA7F00969861 /* LiveKit */,
 			);
 			productName = LKUIKitTest;
 			productReference = 4167910825B3636500F46F9E /* LKUIKitTest.app */;
@@ -358,7 +366,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		41A6A99125B4F74E00C5748A /* LiveKit */ = {
+		41EB17FC25EDBA7F00969861 /* LiveKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LiveKit;
 		};
