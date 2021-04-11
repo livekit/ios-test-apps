@@ -11,21 +11,21 @@
         }
       },
       {
-        "package": "Semver",
-        "repositoryURL": "https://github.com/ddddxxx/Semver",
-        "state": {
-          "branch": null,
-          "revision": "6094e6f23a02b52b5d211fd114a4750c4f3ecef3",
-          "version": "0.2.1"
-        }
-      },
-      {
         "package": "Starscream",
         "repositoryURL": "https://github.com/daltoniam/Starscream.git",
         "state": {
           "branch": null,
           "revision": "df8d82047f6654d8e4b655d1b1525c64e1059d21",
           "version": "4.0.4"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log.git",
+        "state": {
+          "branch": null,
+          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+          "version": "1.4.2"
         }
       },
       {
@@ -39,11 +39,11 @@
       },
       {
         "package": "WebRTC",
-        "repositoryURL": "https://github.com/alexpiezo/WebRTC.git",
+        "repositoryURL": "https://github.com/livekit/WebRTC-swift.git",
         "state": {
           "branch": null,
-          "revision": "d014e28128f1647854bb5e90207ac5341ed6385f",
-          "version": "1.1.31567"
+          "revision": "2ae79b33ca8b903cbaa9fa6ec96df81ef750442e",
+          "version": "1.2.33620"
         }
       }
     ]

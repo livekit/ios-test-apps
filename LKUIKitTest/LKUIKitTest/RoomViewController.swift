@@ -19,25 +19,19 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let url: String = "ws://192.168.91.198:7880"
+        let url: String = "ws://192.168.92.170:7880"
         let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgyMDg0MzksImlzcyI6IkFQSU1teGlMOHJxdUt6dFpFb1pKVjlGYiIsImp0aSI6ImlvcyIsIm5iZiI6MTYxNTYxNjQzOSwidmlkZW8iOnsicm9vbSI6Im15cm9vbSIsInJvb21Kb2luIjp0cnVlfX0.Hdk5EfkRyHBNA3XiHCezFbm9gkzu1ph-_FU1e_EggLU"
         
-        room = LiveKit.connect(options: ConnectOptions.options(token: token, block: { builder in
-            builder.url = url
-        }), delegate: self)
+        room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
     }
 }
 
 extension RoomViewController: RoomDelegate {
     /* Room Delegate Methods */
     func didConnect(room: Room) {
-        room.remoteParticipants.values.forEach { $0.delegate = self }
-        
         if let localParticipant = room.localParticipant {
-            localParticipant.delegate = self
-            
             do {
-                let videoTrack = try LocalVideoTrack.track(enabled: true, name: "localVideo")
+                let videoTrack = try LocalVideoTrack.createTrack(name: "localVideo")
                 localParticipant.publishVideoTrack(track: videoTrack)
             } catch {
                 print("\(error)")
@@ -48,10 +42,6 @@ extension RoomViewController: RoomDelegate {
         }
     }
     
-    func activeSpeakersDidChange(speakers: [Participant], room: Room) {
-        print("room delegate --- active speakers did change")
-    }
-    
     func didDisconnect(room: Room, error: Error?) {
         print("room delegate --- did disconnect")
     }
@@ -60,35 +50,7 @@ extension RoomViewController: RoomDelegate {
         print("room delegate --- did fail to connect")
     }
     
-    func isReconnecting(room: Room, error: Error) {
-        print("room delegate --- is reconnecting")
-    }
-    
-    func didReconnect(room: Room) {
-        print("room delegate --- did reconnect")
-    }
-    
-    func participantDidConnect(room: Room, participant: RemoteParticipant) {
-        participant.delegate = self
-    }
-    
-    func participantDidDisconnect(room: Room, participant: RemoteParticipant) {
-        print("room delegate --- participant did disconnect")
-    }
-    
-    func didStartRecording(room: Room) {
-        print("room delegate --- did start recording")
-    }
-    
-    func didStopRecording(room: Room) {
-        print("room delegate --- did stop recording")
-    }
-    
-    func dominantSpeakerDidChange(room: Room, participant: Participant) {
-        print("room delegate --- dominant speaker change")
-    }
-    
-    func didSubscribe(track: Track, publication: TrackPublication, participant: RemoteParticipant) {
+    func didSubscribe(track: Track, publication: RemoteTrackPublication, participant: RemoteParticipant) {
         print("room delegate --- didSubscribe")
         
         if let videoTrack = track as? VideoTrack {
@@ -116,39 +78,32 @@ extension RoomViewController: RoomDelegate {
     }
 }
 
-extension RoomViewController: ParticipantDelegate {
-    func metadataDidChange(participant: Participant) {
-        print("participant delegate --- metdata did change")
-    }
-    
-    func isSpeakingDidChange(participant: Participant) {
-        print("participant delegate --- isSpeakingDidChange")
-    }
-    
-    func didPublishRemoteTrack(publication: TrackPublication, participant: RemoteParticipant) {
-        print("participant delegate --- didPublishRemoteTrack")
-    }
-    
-    func didUnpublishRemoteTrack(publication: TrackPublication, particpant: RemoteParticipant) {
-        print("participant delegate --- didUnpublishRemoteTrack")
-    }
-    
-    func didMute(publication: TrackPublication, participant: RemoteParticipant) {
-        print("participant delegate --- didMute")
-    }
-    func didUnmute(publication: TrackPublication, participant: RemoteParticipant) {
-        print("participant delegate --- didUnmute")
-    }
-
-    func didFailToSubscribe(sid: String, error: Error, participant: RemoteParticipant) {
-        print("participant delegate --- didFailToSubscribe")
-    }
-    
-    func didUnsubscribe(track: Track, publication: TrackPublication, participant: RemoteParticipant) {
-        print("participant delegate --- didUnsubscribe")
-    }
-
-    func didReceive(data: Data, dataTrack: TrackPublication, participant: RemoteParticipant) {
-        print("participant delegate --- didReceive")
-    }
-}
+//extension RoomViewController: ParticipantDelegate {
+//    func metadataDidChange(participant: Participant) {
+//        print("participant delegate --- metdata did change")
+//    }
+//
+//    func isSpeakingDidChange(participant: Participant) {
+//        print("participant delegate --- isSpeakingDidChange")
+//    }
+//
+//    func didPublishRemoteTrack(publication: RemoteTrackPublication, participant: RemoteParticipant) {
+//        print("participant delegate --- didPublishRemoteTrack")
+//    }
+//
+//    func didUnpublishRemoteTrack(publication: RemoteTrackPublication, particpant: RemoteParticipant) {
+//        print("participant delegate --- didUnpublishRemoteTrack")
+//    }
+//
+//    func didFailToSubscribe(sid: String, error: Error, participant: RemoteParticipant) {
+//        print("participant delegate --- didFailToSubscribe")
+//    }
+//
+//    func didUnsubscribe(track: Track, publication: RemoteTrackPublication, participant: RemoteParticipant) {
+//        print("participant delegate --- didUnsubscribe")
+//    }
+//
+//    func didReceive(data: Data, dataTrack: RemoteTrackPublication, participant: RemoteParticipant) {
+//        print("participant delegate --- didReceive")
+//    }
+//}
