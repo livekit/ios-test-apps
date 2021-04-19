@@ -19,8 +19,8 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        let url: String = "ws://192.168.92.170:7880"
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTgyMDg0MzksImlzcyI6IkFQSU1teGlMOHJxdUt6dFpFb1pKVjlGYiIsImp0aSI6ImlvcyIsIm5iZiI6MTYxNTYxNjQzOSwidmlkZW8iOnsicm9vbSI6Im15cm9vbSIsInJvb21Kb2luIjp0cnVlfX0.Hdk5EfkRyHBNA3XiHCezFbm9gkzu1ph-_FU1e_EggLU"
+        let url: String = "ws://192.168.93.78:7880"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjA4ODMyMzUsImlzcyI6IkFQSU1teGlMOHJxdUt6dFpFb1pKVjlGYiIsImp0aSI6ImlvcyIsIm5iZiI6MTYxODI5MTIzNSwidmlkZW8iOnsicm9vbSI6Im15cm9vbSIsInJvb21Kb2luIjp0cnVlfX0.n1btpTuGp-vZAjkgMCoSkS3MlpJ42ZxzxcbQ_8R4j0g"
         
         room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
     }
