@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/livekit/WebRTC-swift.git",
         "state": {
           "branch": null,
-          "revision": "2ae79b33ca8b903cbaa9fa6ec96df81ef750442e",
-          "version": "1.2.33620"
+          "revision": "94929e6bb4fbed8c46bf73d407bb44c33bda31a6",
+          "version": "1.1.33620"
         }
       }
     ]

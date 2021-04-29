@@ -8,11 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         let button = UIButton(type: .system)
         button.setTitle("Connect", for: .normal)
         button.frame = CGRect(x: 0, y: 0, width: button.intrinsicContentSize.width, height: button.intrinsicContentSize.height)
@@ -20,11 +19,8 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(connectToRoom), for: .touchUpInside)
         view.addSubview(button)
     }
-    
-    @objc func connectToRoom(sender: UIButton) {
+
+    @objc func connectToRoom(sender _: UIButton) {
         present(RoomViewController(), animated: true, completion: nil)
     }
-
-
 }
-
