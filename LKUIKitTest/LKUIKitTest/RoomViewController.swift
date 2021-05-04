@@ -18,8 +18,7 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        let url: String = "ws://livekit-demo-http-1682066792.us-east-1.elb.amazonaws.com"
-//        let url: String = "ws://192.168.93.78:7880"
+        let url: String = "ws://192.168.93.78:7880"
         let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjA4ODMyMzUsImlzcyI6IkFQSU1teGlMOHJxdUt6dFpFb1pKVjlGYiIsImp0aSI6ImlvcyIsIm5iZiI6MTYxODI5MTIzNSwidmlkZW8iOnsicm9vbSI6Im15cm9vbSIsInJvb21Kb2luIjp0cnVlfX0.n1btpTuGp-vZAjkgMCoSkS3MlpJ42ZxzxcbQ_8R4j0g"
 
         room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
@@ -81,7 +80,7 @@ extension RoomViewController: RoomDelegate {
                     videoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
                 ])
 
-                videoTrack.addRenderer(videoView.renderer!)
+                videoTrack.addRenderer(videoView.renderer)
             }
         }
     }
