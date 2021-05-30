@@ -62,6 +62,9 @@ extension RoomViewController: RoomDelegate {
 
     func didFailToConnect(room _: Room, error _: Error) {
         print("room delegate --- did fail to connect")
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
     }
 
     func didSubscribe(track: Track, publication _: RemoteTrackPublication, participant _: RemoteParticipant) {
