@@ -18,8 +18,8 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        let url: String = "ws://192.168.93.78:7880"
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MjA4ODMyMzUsImlzcyI6IkFQSU1teGlMOHJxdUt6dFpFb1pKVjlGYiIsImp0aSI6ImlvcyIsIm5iZiI6MTYxODI5MTIzNSwidmlkZW8iOnsicm9vbSI6Im15cm9vbSIsInJvb21Kb2luIjp0cnVlfX0.n1btpTuGp-vZAjkgMCoSkS3MlpJ42ZxzxcbQ_8R4j0g"
+        let url: String = "ws://<your_host>"
+        let token: String = "<your_token>"
 
         room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
     }
@@ -29,15 +29,19 @@ extension RoomViewController: RoomDelegate {
     /* Room Delegate Methods */
     func didConnect(room: Room) {
         if let localParticipant = room.localParticipant {
-            do {
-                let videoTrack = try LocalVideoTrack.createTrack(name: "localVideo")
-                _ = localParticipant.publishVideoTrack(track: videoTrack)
-            } catch {
-                print("\(error)")
-            }
+            DispatchQueue.global(qos: .background).async {
+                do {
+                    var videoOpts = LocalVideoTrackOptions()
+                    videoOpts.captureParameter = VideoPreset.hd.capture
+                    let videoTrack = try LocalVideoTrack.createTrack(name: "localVideo", options: videoOpts)
+                    _ = localParticipant.publishVideoTrack(track: videoTrack)
+                } catch {
+                    print("\(error)")
+                }
 
-//            let audioTrack = LocalAudioTrack.createTrack(name: "localAudio")
-//            _ = localParticipant.publishAudioTrack(track: audioTrack)
+                let audioTrack = LocalAudioTrack.createTrack(name: "localAudio")
+                _ = localParticipant.publishAudioTrack(track: audioTrack)
+            }
         }
     }
 
@@ -51,7 +55,9 @@ extension RoomViewController: RoomDelegate {
 
     func didDisconnect(room _: Room, error _: Error?) {
         print("room delegate --- did disconnect")
-        dismiss(animated: true)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+        }
     }
 
     func didFailToConnect(room _: Room, error _: Error) {
@@ -86,6 +92,5 @@ extension RoomViewController: RoomDelegate {
     }
 
     func activeSpeakersDidChange(speakers: [Participant], room _: Room) {
-        print("active speakers \(speakers)")
     }
 }

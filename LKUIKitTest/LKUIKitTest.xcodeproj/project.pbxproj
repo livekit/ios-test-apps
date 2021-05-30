@@ -15,6 +15,7 @@
 		4167911825B3636600F46F9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4167911625B3636600F46F9E /* LaunchScreen.storyboard */; };
 		4167912225B368B400F46F9E /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4167912125B368B400F46F9E /* RoomViewController.swift */; };
 		41EB17FD25EDBA7F00969861 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 41EB17FC25EDBA7F00969861 /* LiveKit */; };
+		9E4C517A266413D900219863 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9E4C5179266413D900219863 /* LiveKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41EB17FD25EDBA7F00969861 /* LiveKit in Frameworks */,
+				9E4C517A266413D900219863 /* LiveKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +100,7 @@
 			name = LKUIKitTest;
 			packageProductDependencies = (
 				41EB17FC25EDBA7F00969861 /* LiveKit */,
+				9E4C5179266413D900219863 /* LiveKit */,
 			);
 			productName = LKUIKitTest;
 			productReference = 4167910825B3636500F46F9E /* LKUIKitTest.app */;
@@ -126,6 +129,9 @@
 				Base,
 			);
 			mainGroup = 416790FF25B3636500F46F9E;
+			packageReferences = (
+				9E4C5178266413D900219863 /* XCRemoteSwiftPackageReference "client-sdk-ios" */,
+			);
 			productRefGroup = 4167910925B3636500F46F9E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -365,9 +371,25 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		9E4C5178266413D900219863 /* XCRemoteSwiftPackageReference "client-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/livekit/client-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		41EB17FC25EDBA7F00969861 /* LiveKit */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = LiveKit;
+		};
+		9E4C5179266413D900219863 /* LiveKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E4C5178266413D900219863 /* XCRemoteSwiftPackageReference "client-sdk-ios" */;
 			productName = LiveKit;
 		};
 /* End XCSwiftPackageProductDependency section */
