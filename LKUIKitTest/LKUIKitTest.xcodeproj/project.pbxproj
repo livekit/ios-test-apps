@@ -377,7 +377,7 @@
 			repositoryURL = "https://github.com/livekit/client-sdk-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.7.6;
+				minimumVersion = 0.8.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

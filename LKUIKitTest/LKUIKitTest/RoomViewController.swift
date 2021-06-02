@@ -20,8 +20,14 @@ class RoomViewController: UIViewController {
 
         let url: String = "ws://<your_host>"
         let token: String = "<your_token>"
-
+        
         room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        room?.disconnect()
+        room = nil
+        LiveKit.releaseAudioSession()
     }
 }
 

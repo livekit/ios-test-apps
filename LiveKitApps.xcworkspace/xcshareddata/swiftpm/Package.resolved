@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/livekit/client-sdk-ios",
         "state": {
           "branch": null,
-          "revision": "eaa1391122de81f1c2d410490079469f5669a0d8",
-          "version": "0.7.6"
+          "revision": "51d961175347c0ba7d6bf11f92fd0e1351325367",
+          "version": "0.8.1"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/livekit/WebRTC-swift.git",
         "state": {
           "branch": null,
-          "revision": "94929e6bb4fbed8c46bf73d407bb44c33bda31a6",
-          "version": "1.1.33620"
+          "revision": "58ee993cc6995bdfab3b92028c58d0fa10bc91b0",
+          "version": "2.91.0"
         }
       }
     ]
