@@ -14,9 +14,13 @@ class RoomViewController: UIViewController {
     var remoteVideo: VideoView?
     var localVideo: VideoView?
 
+    var isRearCamera: Bool = false;
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleCamera(_:))))
+
 
         let url: String = "ws://<your_host>"
         let token: String = "<your_token>"
@@ -29,6 +33,20 @@ class RoomViewController: UIViewController {
         room = nil
         LiveKit.releaseAudioSession()
     }
+
+    @objc func toggleCamera(_ sender: UITapGestureRecognizer) throws {
+        //
+        let pub = room?.localParticipant?.videoTracks.values.first
+        let track = pub?.track as? LocalVideoTrack
+
+        var options = LocalVideoTrackOptions()
+        options.captureParameter = VideoPreset.hd.capture
+        options.position = isRearCamera ? .front: .back
+        isRearCamera = !isRearCamera
+
+        try track?.restartTrack(options: options)
+    }
+
 }
 
 extension RoomViewController: RoomDelegate {
@@ -79,8 +97,11 @@ extension RoomViewController: RoomDelegate {
         if let videoTrack = track as? VideoTrack {
             DispatchQueue.main.async {
                 let videoView = VideoView(frame: .zero)
+                videoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleCamera(_:))))
+
                 self.remoteVideo = videoView
                 videoView.translatesAutoresizingMaskIntoConstraints = false
+
 
                 if let localVideo = self.localVideo {
                     self.view.insertSubview(videoView, belowSubview: localVideo)
