@@ -21,9 +21,9 @@ class RoomViewController: UIViewController {
         view.backgroundColor = .white
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.toggleCamera(_:))))
 
-        let url: String = "wss://xxxxxxx"
+        let url: String = "wss://rtc.unxpected.co.jp"
         // swiftlint:disable:next line_length
-        let token: String = "xxxxxxxx"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzQyMjgzNDksIm5iZiI6MTYzNDIyNjU0OSwiaXNzIjoiQVBJd2NWRFNSUjRTRkE2IiwianRpIjoiZGVidWciLCJ2aWRlbyI6eyJyb29tIjoicm9vbWE0OGM5ZmUxLTQ5OGQtNGE5OC1iYzdmLTE4YmI2YWI3M2QzYiIsInJvb21DcmVhdGUiOnRydWUsInJvb21Kb2luIjp0cnVlLCJyb29tTGlzdCI6dHJ1ZSwicm9vbVJlY29yZCI6dHJ1ZSwicm9vbUFkbWluIjp0cnVlLCJjYW5QdWJsaXNoIjp0cnVlLCJjYW5TdWJzY3JpYmUiOnRydWV9fQ.QV6TEZBXQKurRAkxMQUiTDdhoOSMMMphOqr2CWsgpZU"
 
         room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
     }
@@ -31,7 +31,7 @@ class RoomViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         room?.disconnect()
         room = nil
-        LiveKit.releaseAudioSession()
+        //        LiveKit.releaseAudioSession()
     }
 
     @objc func toggleCamera(_ sender: UITapGestureRecognizer) throws {
@@ -103,9 +103,11 @@ extension RoomViewController: RoomDelegate {
 
     func room(_ room: Room, participant: RemoteParticipant, didUnsubscribe trackPublication: RemoteTrackPublication) {
         print("room delegate --- didUnsubscribe")
-        DispatchQueue.main.async {
-            self.remoteVideo?.removeFromSuperview()
-            self.remoteVideo = nil
+        if trackPublication.kind == .video {
+            DispatchQueue.main.async {
+                self.remoteVideo?.removeFromSuperview()
+                self.remoteVideo = nil
+            }
         }
     }
 

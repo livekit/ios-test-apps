@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		4167911525B3636600F46F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4167911425B3636600F46F9E /* Assets.xcassets */; };
 		4167911825B3636600F46F9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4167911625B3636600F46F9E /* LaunchScreen.storyboard */; };
 		4167912225B368B400F46F9E /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4167912125B368B400F46F9E /* RoomViewController.swift */; };
+		686E90B0271803A2000FF99A /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 686E90AF271803A2000FF99A /* LiveKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4167911725B3636600F46F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4167911925B3636600F46F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4167912125B368B400F46F9E /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		686E90AE27180304000FF99A /* client-sdk-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "client-sdk-ios"; path = "../../../repos_livekit/client-sdk-ios"; sourceTree = "<group>"; };
 		68F70BC926E712EA00B1A6B9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		68F70BCA26E712EA00B1A6B9 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		68F70BCD26E712EA00B1A6B9 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686E90B0271803A2000FF99A /* LiveKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +98,7 @@
 		416790FF25B3636500F46F9E = {
 			isa = PBXGroup;
 			children = (
+				686E90AE27180304000FF99A /* client-sdk-ios */,
 				4167910A25B3636500F46F9E /* LKUIKitTest */,
 				4167910925B3636500F46F9E /* Products */,
 				41EB17FB25EDBA7F00969861 /* Frameworks */,
@@ -315,6 +319,7 @@
 			);
 			name = LKUIKitTest;
 			packageProductDependencies = (
+				686E90AF271803A2000FF99A /* LiveKit */,
 			);
 			productName = LKUIKitTest;
 			productReference = 4167910825B3636500F46F9E /* LKUIKitTest.app */;
@@ -603,6 +608,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		686E90AF271803A2000FF99A /* LiveKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LiveKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4167910025B3636500F46F9E /* Project object */;
 }
