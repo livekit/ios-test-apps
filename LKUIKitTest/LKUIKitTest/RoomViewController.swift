@@ -23,9 +23,11 @@ class RoomViewController: UIViewController {
 
         let url: String = "wss://rtc.unxpected.co.jp"
         // swiftlint:disable:next line_length
-        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzQyMjgzNDksIm5iZiI6MTYzNDIyNjU0OSwiaXNzIjoiQVBJd2NWRFNSUjRTRkE2IiwianRpIjoiZGVidWciLCJ2aWRlbyI6eyJyb29tIjoicm9vbWE0OGM5ZmUxLTQ5OGQtNGE5OC1iYzdmLTE4YmI2YWI3M2QzYiIsInJvb21DcmVhdGUiOnRydWUsInJvb21Kb2luIjp0cnVlLCJyb29tTGlzdCI6dHJ1ZSwicm9vbVJlY29yZCI6dHJ1ZSwicm9vbUFkbWluIjp0cnVlLCJjYW5QdWJsaXNoIjp0cnVlLCJjYW5TdWJzY3JpYmUiOnRydWV9fQ.QV6TEZBXQKurRAkxMQUiTDdhoOSMMMphOqr2CWsgpZU"
+        let token: String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzQ0ODAxODcsIm5iZiI6MTYzNDQ3ODM4NywiaXNzIjoiQVBJd2NWRFNSUjRTRkE2IiwianRpIjoiZGVidWciLCJ2aWRlbyI6eyJyb29tIjoicm9vbTI2MmMzYWEzLTIzMzItNDE0MS04YjA1LTcyOTk3NjZkMTcxNSIsInJvb21DcmVhdGUiOnRydWUsInJvb21Kb2luIjp0cnVlLCJyb29tTGlzdCI6dHJ1ZSwicm9vbVJlY29yZCI6dHJ1ZSwicm9vbUFkbWluIjp0cnVlLCJjYW5QdWJsaXNoIjp0cnVlLCJjYW5TdWJzY3JpYmUiOnRydWV9fQ.iA1Z1zrgEBKXZcVcE54-059iWtmrDU1CUcGIa1X9rCs"
 
-        room = LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self)
+        LiveKit.connect(options: ConnectOptions(url: url, token: token), delegate: self).then { room in
+            self.room = room
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -63,26 +65,26 @@ extension RoomViewController: RoomDelegate {
             }
 
             DispatchQueue.global(qos: .background).async {
-                do {
-                    var videoOpts = LocalVideoTrackOptions()
-                    videoOpts.captureParameter = VideoParameters.presetHD43
+                //                do {
+                //                    var videoOpts = LocalVideoTrackOptions()
+                //                    videoOpts.captureParameter = VideoParameters.presetHD43
+                //
+                //                    var publishOptions = LocalVideoTrackPublishOptions()
+                //                    publishOptions.simulcast = true
+                //
+                //                    let videoTrack = try LocalVideoTrack.createTrack(name: "localVideo", options: videoOpts)
+                //                    localParticipant.publishVideoTrack(track: videoTrack, options: publishOptions).then({ _ in
+                //                        print("[Publish] video success")
+                //                    }).catch({ error in
+                //                        print("[Publish] error \(error)")
+                //                    })
+                //
+                //                } catch {
+                //                    print("\(error)")
+                //                }
 
-                    var publishOptions = LocalVideoTrackPublishOptions()
-                    publishOptions.simulcast = true
-
-                    let videoTrack = try LocalVideoTrack.createTrack(name: "localVideo", options: videoOpts)
-                    localParticipant.publishVideoTrack(track: videoTrack, options: publishOptions).then({ _ in
-                        print("[Publish] video success")
-                    }).catch({ error in
-                        print("[Publish] error \(error)")
-                    })
-
-                } catch {
-                    print("\(error)")
-                }
-
-                let audioTrack = LocalAudioTrack.createTrack(name: "localAudio")
-                _ = localParticipant.publishAudioTrack(track: audioTrack)
+                //                let audioTrack = LocalAudioTrack.createTrack(name: "localAudio")
+                //                _ = localParticipant.publishAudioTrack(track: audioTrack)
             }
         }
     }
@@ -137,7 +139,7 @@ extension RoomViewController: RoomDelegate {
                     videoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
                 ])
 
-                videoTrack.addRenderer(videoView.renderer)
+                videoTrack.addRenderer(videoView.rendererView)
             }
         }
     }

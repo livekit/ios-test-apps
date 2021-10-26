@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ReplayKit
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
@@ -24,5 +25,14 @@ class ViewController: UIViewController {
 
     @objc func connectToRoom(sender _: UIButton) {
         present(RoomViewController(), animated: true, completion: nil)
+    }
+
+    @objc func record() {
+        let broadcastPicker = RPSystemBroadcastPickerView(frame: CGRect(x: 50,
+                                                                        y: 50,
+                                                                        width: view.bounds.width,
+                                                                        height: 50))
+        broadcastPicker.preferredExtension = "io.livekit.example.screen-broadcaster"
+        view.addSubview(broadcastPicker)
     }
 }
