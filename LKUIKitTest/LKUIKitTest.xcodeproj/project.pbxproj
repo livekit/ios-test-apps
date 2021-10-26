@@ -14,8 +14,36 @@
 		4167911525B3636600F46F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4167911425B3636600F46F9E /* Assets.xcassets */; };
 		4167911825B3636600F46F9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4167911625B3636600F46F9E /* LaunchScreen.storyboard */; };
 		4167912225B368B400F46F9E /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4167912125B368B400F46F9E /* RoomViewController.swift */; };
+		6807FCF727198F5B000936E9 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6807FCF627198F5B000936E9 /* ReplayKit.framework */; };
+		6807FCFA27198F5B000936E9 /* SampleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6807FCF927198F5B000936E9 /* SampleHandler.swift */; };
+		6807FCFE27198F5B000936E9 /* LiveKitExampleBroadcastExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6807FCF527198F5B000936E9 /* LiveKitExampleBroadcastExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		686E90B0271803A2000FF99A /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 686E90AF271803A2000FF99A /* LiveKit */; };
+		6882C7662719A200007A4F19 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6882C7652719A200007A4F19 /* LiveKit */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6807FCFC27198F5B000936E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4167910025B3636500F46F9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6807FCF427198F5B000936E9;
+			remoteInfo = LiveKitExampleBroadcastExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6807FCFF27198F5B000936E9 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6807FCFE27198F5B000936E9 /* LiveKitExampleBroadcastExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4167910825B3636500F46F9E /* LKUIKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LKUIKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +55,10 @@
 		4167911725B3636600F46F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4167911925B3636600F46F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4167912125B368B400F46F9E /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		6807FCF527198F5B000936E9 /* LiveKitExampleBroadcastExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveKitExampleBroadcastExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6807FCF627198F5B000936E9 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		6807FCF927198F5B000936E9 /* SampleHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleHandler.swift; sourceTree = "<group>"; };
+		6807FCFB27198F5B000936E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		686E90AE27180304000FF99A /* client-sdk-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "client-sdk-ios"; path = "../../../repos_livekit/client-sdk-ios"; sourceTree = "<group>"; };
 		68F70BC926E712EA00B1A6B9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		68F70BCA26E712EA00B1A6B9 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -92,6 +124,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6807FCF227198F5B000936E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6807FCF727198F5B000936E9 /* ReplayKit.framework in Frameworks */,
+				6882C7662719A200007A4F19 /* LiveKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,6 +141,7 @@
 			children = (
 				686E90AE27180304000FF99A /* client-sdk-ios */,
 				4167910A25B3636500F46F9E /* LKUIKitTest */,
+				6807FCF827198F5B000936E9 /* LiveKitExampleBroadcastExt */,
 				4167910925B3636500F46F9E /* Products */,
 				41EB17FB25EDBA7F00969861 /* Frameworks */,
 			);
@@ -109,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4167910825B3636500F46F9E /* LKUIKitTest.app */,
+				6807FCF527198F5B000936E9 /* LiveKitExampleBroadcastExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,8 +175,18 @@
 			isa = PBXGroup;
 			children = (
 				68F70BC826E712EA00B1A6B9 /* client-sdk-ios */,
+				6807FCF627198F5B000936E9 /* ReplayKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6807FCF827198F5B000936E9 /* LiveKitExampleBroadcastExt */ = {
+			isa = PBXGroup;
+			children = (
+				6807FCF927198F5B000936E9 /* SampleHandler.swift */,
+				6807FCFB27198F5B000936E9 /* Info.plist */,
+			);
+			path = LiveKitExampleBroadcastExt;
 			sourceTree = "<group>";
 		};
 		68F70BC826E712EA00B1A6B9 /* client-sdk-ios */ = {
@@ -312,10 +365,12 @@
 				4167910425B3636500F46F9E /* Sources */,
 				4167910525B3636500F46F9E /* Frameworks */,
 				4167910625B3636500F46F9E /* Resources */,
+				6807FCFF27198F5B000936E9 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6807FCFD27198F5B000936E9 /* PBXTargetDependency */,
 			);
 			name = LKUIKitTest;
 			packageProductDependencies = (
@@ -325,17 +380,40 @@
 			productReference = 4167910825B3636500F46F9E /* LKUIKitTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6807FCF427198F5B000936E9 /* LiveKitExampleBroadcastExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6807FD0227198F5B000936E9 /* Build configuration list for PBXNativeTarget "LiveKitExampleBroadcastExt" */;
+			buildPhases = (
+				6807FCF127198F5B000936E9 /* Sources */,
+				6807FCF227198F5B000936E9 /* Frameworks */,
+				6807FCF327198F5B000936E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LiveKitExampleBroadcastExt;
+			packageProductDependencies = (
+				6882C7652719A200007A4F19 /* LiveKit */,
+			);
+			productName = LiveKitExampleBroadcastExt;
+			productReference = 6807FCF527198F5B000936E9 /* LiveKitExampleBroadcastExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		4167910025B3636500F46F9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					4167910725B3636500F46F9E = {
 						CreatedOnToolsVersion = 12.3;
+					};
+					6807FCF427198F5B000936E9 = {
+						CreatedOnToolsVersion = 13.0;
 					};
 				};
 			};
@@ -355,6 +433,7 @@
 			projectRoot = "";
 			targets = (
 				4167910725B3636500F46F9E /* LKUIKitTest */,
+				6807FCF427198F5B000936E9 /* LiveKitExampleBroadcastExt */,
 			);
 		};
 /* End PBXProject section */
@@ -367,6 +446,13 @@
 				4167911825B3636600F46F9E /* LaunchScreen.storyboard in Resources */,
 				4167911525B3636600F46F9E /* Assets.xcassets in Resources */,
 				4167911325B3636500F46F9E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6807FCF327198F5B000936E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +490,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6807FCF127198F5B000936E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6807FCFA27198F5B000936E9 /* SampleHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6807FCFD27198F5B000936E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6807FCF427198F5B000936E9 /* LiveKitExampleBroadcastExt */;
+			targetProxy = 6807FCFC27198F5B000936E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4167911125B3636500F46F9E /* Main.storyboard */ = {
@@ -547,6 +649,7 @@
 		4167911D25B3636600F46F9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -554,6 +657,7 @@
 				DEVELOPMENT_TEAM = J48VV6BZV9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LKUIKitTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,6 +672,7 @@
 		4167911E25B3636600F46F9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -575,6 +680,7 @@
 				DEVELOPMENT_TEAM = J48VV6BZV9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LKUIKitTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,6 +688,64 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.livekit.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6807FD0027198F5B000936E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J48VV6BZV9;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveKitExampleBroadcastExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "LiveKit Example";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.livekit.example.screen-broadcaster";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6807FD0127198F5B000936E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J48VV6BZV9;
+				ENABLE_BITCODE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LiveKitExampleBroadcastExt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "LiveKit Example";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.livekit.example.screen-broadcaster";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -607,10 +771,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6807FD0227198F5B000936E9 /* Build configuration list for PBXNativeTarget "LiveKitExampleBroadcastExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6807FD0027198F5B000936E9 /* Debug */,
+				6807FD0127198F5B000936E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		686E90AF271803A2000FF99A /* LiveKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LiveKit;
+		};
+		6882C7652719A200007A4F19 /* LiveKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LiveKit;
 		};
