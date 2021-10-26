@@ -2,21 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "LiveKit",
-        "repositoryURL": "https://github.com/livekit/client-sdk-ios",
-        "state": {
-          "branch": null,
-          "revision": "bc5bc3c48278fff5034d184081d715dceaa7a05c",
-          "version": "0.8.2"
-        }
-      },
-      {
         "package": "Promises",
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
           "branch": null,
-          "revision": "afa9a1ace74e116848d4f743599ab83e584ff8cb",
-          "version": "1.2.12"
+          "revision": "611337c330350c9c1823ad6d671e7f936af5ee13",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "WebRTC",
+        "repositoryURL": "https://github.com/webrtc-sdk/Specs.git",
+        "state": {
+          "branch": null,
+          "revision": "54c90b9139304e9dde8863cb7d88ad9fe26d012b",
+          "version": "92.4515.10"
         }
       },
       {
@@ -35,15 +35,6 @@
           "branch": null,
           "revision": "7e2c5f3cbbeea68e004915e3a8961e20bd11d824",
           "version": "1.18.0"
-        }
-      },
-      {
-        "package": "WebRTC",
-        "repositoryURL": "https://github.com/livekit/WebRTC-swift.git",
-        "state": {
-          "branch": null,
-          "revision": "58ee993cc6995bdfab3b92028c58d0fa10bc91b0",
-          "version": "2.91.0"
         }
       }
     ]

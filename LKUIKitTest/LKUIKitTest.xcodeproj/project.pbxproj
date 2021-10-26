@@ -14,8 +14,7 @@
 		4167911525B3636600F46F9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4167911425B3636600F46F9E /* Assets.xcassets */; };
 		4167911825B3636600F46F9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4167911625B3636600F46F9E /* LaunchScreen.storyboard */; };
 		4167912225B368B400F46F9E /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4167912125B368B400F46F9E /* RoomViewController.swift */; };
-		41EB17FD25EDBA7F00969861 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 41EB17FC25EDBA7F00969861 /* LiveKit */; };
-		9E4C517A266413D900219863 /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9E4C5179266413D900219863 /* LiveKit */; };
+		686E90B0271803A2000FF99A /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = 686E90AF271803A2000FF99A /* LiveKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +27,60 @@
 		4167911725B3636600F46F9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4167911925B3636600F46F9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4167912125B368B400F46F9E /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		686E90AE27180304000FF99A /* client-sdk-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "client-sdk-ios"; path = "../../../repos_livekit/client-sdk-ios"; sourceTree = "<group>"; };
+		68F70BC926E712EA00B1A6B9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		68F70BCA26E712EA00B1A6B9 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		68F70BCD26E712EA00B1A6B9 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		68F70BCE26E712EA00B1A6B9 /* LiveKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveKitTests.swift; sourceTree = "<group>"; };
+		68F70BCF26E712EA00B1A6B9 /* LinuxMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
+		68F70BD026E712EA00B1A6B9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		68F70BD126E712EA00B1A6B9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		68F70BD426E712EA00B1A6B9 /* publish-docs.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "publish-docs.yaml"; sourceTree = "<group>"; };
+		68F70BD526E712EA00B1A6B9 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		68F70BD926E712EA00B1A6B9 /* livekit_rtc.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = livekit_rtc.pb.swift; sourceTree = "<group>"; };
+		68F70BDA26E712EA00B1A6B9 /* livekit_models.pb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = livekit_models.pb.swift; sourceTree = "<group>"; };
+		68F70BDC26E712EA00B1A6B9 /* EncodingParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingParameters.swift; sourceTree = "<group>"; };
+		68F70BDD26E712EA00B1A6B9 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		68F70BDE26E712EA00B1A6B9 /* SignalClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalClient.swift; sourceTree = "<group>"; };
+		68F70BDF26E712EA00B1A6B9 /* SubscriberTransportDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriberTransportDelegate.swift; sourceTree = "<group>"; };
+		68F70BE026E712EA00B1A6B9 /* RemoteParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteParticipant.swift; sourceTree = "<group>"; };
+		68F70BE126E712EA00B1A6B9 /* LocalTrackPublishOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTrackPublishOptions.swift; sourceTree = "<group>"; };
+		68F70BE226E712EA00B1A6B9 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		68F70BE326E712EA00B1A6B9 /* PublisherTransportDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherTransportDelegate.swift; sourceTree = "<group>"; };
+		68F70BE426E712EA00B1A6B9 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		68F70BE526E712EA00B1A6B9 /* LocalVideoTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalVideoTrack.swift; sourceTree = "<group>"; };
+		68F70BE626E712EA00B1A6B9 /* VideoTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTrack.swift; sourceTree = "<group>"; };
+		68F70BE726E712EA00B1A6B9 /* ConnectOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectOptions.swift; sourceTree = "<group>"; };
+		68F70BE826E712EA00B1A6B9 /* LiveKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveKit.swift; sourceTree = "<group>"; };
+		68F70BE926E712EA00B1A6B9 /* RTCEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCEngine.swift; sourceTree = "<group>"; };
+		68F70BEA26E712EA00B1A6B9 /* TrackPublication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPublication.swift; sourceTree = "<group>"; };
+		68F70BEB26E712EA00B1A6B9 /* LocalParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalParticipant.swift; sourceTree = "<group>"; };
+		68F70BEC26E712EA00B1A6B9 /* IceCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCandidate.swift; sourceTree = "<group>"; };
+		68F70BED26E712EA00B1A6B9 /* PeerConnectionTransportDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionTransportDelegate.swift; sourceTree = "<group>"; };
+		68F70BEE26E712EA00B1A6B9 /* PeerConnectionTransport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectionTransport.swift; sourceTree = "<group>"; };
+		68F70BEF26E712EA00B1A6B9 /* LocalAudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAudioTrack.swift; sourceTree = "<group>"; };
+		68F70BF026E712EA00B1A6B9 /* AudioTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTrack.swift; sourceTree = "<group>"; };
+		68F70BF126E712EA00B1A6B9 /* LocalTrackPublication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTrackPublication.swift; sourceTree = "<group>"; };
+		68F70BF226E712EA00B1A6B9 /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		68F70BF326E712EA00B1A6B9 /* VideoFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoFrame.swift; sourceTree = "<group>"; };
+		68F70BF426E712EA00B1A6B9 /* RemoteTrackPublication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTrackPublication.swift; sourceTree = "<group>"; };
+		68F70BF626E712EA00B1A6B9 /* VideoRenderingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRenderingType.swift; sourceTree = "<group>"; };
+		68F70BF726E712EA00B1A6B9 /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
+		68F70BF826E712EA00B1A6B9 /* CameraSourceOptionsRotationTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSourceOptionsRotationTags.swift; sourceTree = "<group>"; };
+		68F70BF926E712EA00B1A6B9 /* VideoOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoOrientation.swift; sourceTree = "<group>"; };
+		68F70BFA26E712EA00B1A6B9 /* RoomState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomState.swift; sourceTree = "<group>"; };
+		68F70BFC26E712EA00B1A6B9 /* URLSession+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Request.swift"; sourceTree = "<group>"; };
+		68F70BFD26E712EA00B1A6B9 /* RTCDataChannel+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RTCDataChannel+Util.swift"; sourceTree = "<group>"; };
+		68F70BFE26E712EA00B1A6B9 /* RTCMediaStreamTrack+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RTCMediaStreamTrack+Util.swift"; sourceTree = "<group>"; };
+		68F70C0026E712EA00B1A6B9 /* VideoViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewDelegate.swift; sourceTree = "<group>"; };
+		68F70C0126E712EA00B1A6B9 /* VideoRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRenderer.swift; sourceTree = "<group>"; };
+		68F70C0226E712EA00B1A6B9 /* SignalClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalClientDelegate.swift; sourceTree = "<group>"; };
+		68F70C0326E712EA00B1A6B9 /* ParticipantDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantDelegate.swift; sourceTree = "<group>"; };
+		68F70C0426E712EA00B1A6B9 /* RTCEngineDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTCEngineDelegate.swift; sourceTree = "<group>"; };
+		68F70C0526E712EA00B1A6B9 /* AudioSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSink.swift; sourceTree = "<group>"; };
+		68F70C0626E712EA00B1A6B9 /* VideoSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSource.swift; sourceTree = "<group>"; };
+		68F70C0726E712EA00B1A6B9 /* RoomDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDelegate.swift; sourceTree = "<group>"; };
+		68F70C0A26E712EA00B1A6B9 /* package.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = package.xcworkspace; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,8 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41EB17FD25EDBA7F00969861 /* LiveKit in Frameworks */,
-				9E4C517A266413D900219863 /* LiveKit in Frameworks */,
+				686E90B0271803A2000FF99A /* LiveKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +98,7 @@
 		416790FF25B3636500F46F9E = {
 			isa = PBXGroup;
 			children = (
+				686E90AE27180304000FF99A /* client-sdk-ios */,
 				4167910A25B3636500F46F9E /* LKUIKitTest */,
 				4167910925B3636500F46F9E /* Products */,
 				41EB17FB25EDBA7F00969861 /* Frameworks */,
@@ -78,8 +131,174 @@
 		41EB17FB25EDBA7F00969861 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68F70BC826E712EA00B1A6B9 /* client-sdk-ios */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68F70BC826E712EA00B1A6B9 /* client-sdk-ios */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BC926E712EA00B1A6B9 /* LICENSE */,
+				68F70BCA26E712EA00B1A6B9 /* Makefile */,
+				68F70BCB26E712EA00B1A6B9 /* Tests */,
+				68F70BD026E712EA00B1A6B9 /* README.md */,
+				68F70BD126E712EA00B1A6B9 /* .gitignore */,
+				68F70BD226E712EA00B1A6B9 /* .github */,
+				68F70BD526E712EA00B1A6B9 /* Package.swift */,
+				68F70BD626E712EA00B1A6B9 /* Sources */,
+				68F70C0826E712EA00B1A6B9 /* .swiftpm */,
+			);
+			name = "client-sdk-ios";
+			path = "../../client-sdk-ios";
+			sourceTree = "<group>";
+		};
+		68F70BCB26E712EA00B1A6B9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BCC26E712EA00B1A6B9 /* LiveKitTests */,
+				68F70BCF26E712EA00B1A6B9 /* LinuxMain.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		68F70BCC26E712EA00B1A6B9 /* LiveKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BCD26E712EA00B1A6B9 /* XCTestManifests.swift */,
+				68F70BCE26E712EA00B1A6B9 /* LiveKitTests.swift */,
+			);
+			path = LiveKitTests;
+			sourceTree = "<group>";
+		};
+		68F70BD226E712EA00B1A6B9 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BD326E712EA00B1A6B9 /* workflows */,
+			);
+			path = .github;
+			sourceTree = "<group>";
+		};
+		68F70BD326E712EA00B1A6B9 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BD426E712EA00B1A6B9 /* publish-docs.yaml */,
+			);
+			path = workflows;
+			sourceTree = "<group>";
+		};
+		68F70BD626E712EA00B1A6B9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BD726E712EA00B1A6B9 /* LiveKit */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		68F70BD726E712EA00B1A6B9 /* LiveKit */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BD826E712EA00B1A6B9 /* proto */,
+				68F70BDB26E712EA00B1A6B9 /* classes */,
+				68F70BF526E712EA00B1A6B9 /* enums */,
+				68F70BFB26E712EA00B1A6B9 /* extensions */,
+				68F70BFF26E712EA00B1A6B9 /* protocols */,
+			);
+			path = LiveKit;
+			sourceTree = "<group>";
+		};
+		68F70BD826E712EA00B1A6B9 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BD926E712EA00B1A6B9 /* livekit_rtc.pb.swift */,
+				68F70BDA26E712EA00B1A6B9 /* livekit_models.pb.swift */,
+			);
+			path = proto;
+			sourceTree = "<group>";
+		};
+		68F70BDB26E712EA00B1A6B9 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BDC26E712EA00B1A6B9 /* EncodingParameters.swift */,
+				68F70BDD26E712EA00B1A6B9 /* Track.swift */,
+				68F70BDE26E712EA00B1A6B9 /* SignalClient.swift */,
+				68F70BDF26E712EA00B1A6B9 /* SubscriberTransportDelegate.swift */,
+				68F70BE026E712EA00B1A6B9 /* RemoteParticipant.swift */,
+				68F70BE126E712EA00B1A6B9 /* LocalTrackPublishOptions.swift */,
+				68F70BE226E712EA00B1A6B9 /* VideoView.swift */,
+				68F70BE326E712EA00B1A6B9 /* PublisherTransportDelegate.swift */,
+				68F70BE426E712EA00B1A6B9 /* Room.swift */,
+				68F70BE526E712EA00B1A6B9 /* LocalVideoTrack.swift */,
+				68F70BE626E712EA00B1A6B9 /* VideoTrack.swift */,
+				68F70BE726E712EA00B1A6B9 /* ConnectOptions.swift */,
+				68F70BE826E712EA00B1A6B9 /* LiveKit.swift */,
+				68F70BE926E712EA00B1A6B9 /* RTCEngine.swift */,
+				68F70BEA26E712EA00B1A6B9 /* TrackPublication.swift */,
+				68F70BEB26E712EA00B1A6B9 /* LocalParticipant.swift */,
+				68F70BEC26E712EA00B1A6B9 /* IceCandidate.swift */,
+				68F70BED26E712EA00B1A6B9 /* PeerConnectionTransportDelegate.swift */,
+				68F70BEE26E712EA00B1A6B9 /* PeerConnectionTransport.swift */,
+				68F70BEF26E712EA00B1A6B9 /* LocalAudioTrack.swift */,
+				68F70BF026E712EA00B1A6B9 /* AudioTrack.swift */,
+				68F70BF126E712EA00B1A6B9 /* LocalTrackPublication.swift */,
+				68F70BF226E712EA00B1A6B9 /* Participant.swift */,
+				68F70BF326E712EA00B1A6B9 /* VideoFrame.swift */,
+				68F70BF426E712EA00B1A6B9 /* RemoteTrackPublication.swift */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		68F70BF526E712EA00B1A6B9 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BF626E712EA00B1A6B9 /* VideoRenderingType.swift */,
+				68F70BF726E712EA00B1A6B9 /* VideoQuality.swift */,
+				68F70BF826E712EA00B1A6B9 /* CameraSourceOptionsRotationTags.swift */,
+				68F70BF926E712EA00B1A6B9 /* VideoOrientation.swift */,
+				68F70BFA26E712EA00B1A6B9 /* RoomState.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		68F70BFB26E712EA00B1A6B9 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				68F70BFC26E712EA00B1A6B9 /* URLSession+Request.swift */,
+				68F70BFD26E712EA00B1A6B9 /* RTCDataChannel+Util.swift */,
+				68F70BFE26E712EA00B1A6B9 /* RTCMediaStreamTrack+Util.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		68F70BFF26E712EA00B1A6B9 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				68F70C0026E712EA00B1A6B9 /* VideoViewDelegate.swift */,
+				68F70C0126E712EA00B1A6B9 /* VideoRenderer.swift */,
+				68F70C0226E712EA00B1A6B9 /* SignalClientDelegate.swift */,
+				68F70C0326E712EA00B1A6B9 /* ParticipantDelegate.swift */,
+				68F70C0426E712EA00B1A6B9 /* RTCEngineDelegate.swift */,
+				68F70C0526E712EA00B1A6B9 /* AudioSink.swift */,
+				68F70C0626E712EA00B1A6B9 /* VideoSource.swift */,
+				68F70C0726E712EA00B1A6B9 /* RoomDelegate.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		68F70C0826E712EA00B1A6B9 /* .swiftpm */ = {
+			isa = PBXGroup;
+			children = (
+				68F70C0926E712EA00B1A6B9 /* xcode */,
+			);
+			path = .swiftpm;
+			sourceTree = "<group>";
+		};
+		68F70C0926E712EA00B1A6B9 /* xcode */ = {
+			isa = PBXGroup;
+			children = (
+				68F70C0A26E712EA00B1A6B9 /* package.xcworkspace */,
+			);
+			path = xcode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +308,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4167911C25B3636600F46F9E /* Build configuration list for PBXNativeTarget "LKUIKitTest" */;
 			buildPhases = (
+				686E90AD2715EFDA000FF99A /* ShellScript */,
 				4167910425B3636500F46F9E /* Sources */,
 				4167910525B3636500F46F9E /* Frameworks */,
 				4167910625B3636500F46F9E /* Resources */,
@@ -99,8 +319,7 @@
 			);
 			name = LKUIKitTest;
 			packageProductDependencies = (
-				41EB17FC25EDBA7F00969861 /* LiveKit */,
-				9E4C5179266413D900219863 /* LiveKit */,
+				686E90AF271803A2000FF99A /* LiveKit */,
 			);
 			productName = LKUIKitTest;
 			productReference = 4167910825B3636500F46F9E /* LKUIKitTest.app */;
@@ -113,7 +332,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					4167910725B3636500F46F9E = {
 						CreatedOnToolsVersion = 12.3;
@@ -130,7 +349,6 @@
 			);
 			mainGroup = 416790FF25B3636500F46F9E;
 			packageReferences = (
-				9E4C5178266413D900219863 /* XCRemoteSwiftPackageReference "client-sdk-ios" */,
 			);
 			productRefGroup = 4167910925B3636500F46F9E /* Products */;
 			projectDirPath = "";
@@ -153,6 +371,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		686E90AD2715EFDA000FF99A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint autocorrect --format\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4167910425B3636500F46F9E /* Sources */ = {
@@ -246,6 +484,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -300,6 +539,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -311,17 +551,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z5V633C2T;
+				DEVELOPMENT_TEAM = J48VV6BZV9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LKUIKitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skullbocks.LKUIKitTest;
+				PRODUCT_BUNDLE_IDENTIFIER = io.livekit.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -333,17 +572,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Z5V633C2T;
+				DEVELOPMENT_TEAM = J48VV6BZV9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LKUIKitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skullbocks.LKUIKitTest;
+				PRODUCT_BUNDLE_IDENTIFIER = io.livekit.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -371,25 +609,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		9E4C5178266413D900219863 /* XCRemoteSwiftPackageReference "client-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/livekit/client-sdk-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.8.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		41EB17FC25EDBA7F00969861 /* LiveKit */ = {
+		686E90AF271803A2000FF99A /* LiveKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = LiveKit;
-		};
-		9E4C5179266413D900219863 /* LiveKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9E4C5178266413D900219863 /* XCRemoteSwiftPackageReference "client-sdk-ios" */;
 			productName = LiveKit;
 		};
 /* End XCSwiftPackageProductDependency section */
